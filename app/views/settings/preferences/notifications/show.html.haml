@@ -7,24 +7,24 @@
 = simple_form_for current_user, url: settings_preferences_notifications_path, html: { method: :put, id: 'edit_notification' } do |f|
   = render 'shared/error_messages', object: current_user
 
-  %h4= t 'notifications.email_events'
+  -# %h4= t 'notifications.email_events'
+  -# 
+  -# %p.hint= t 'notifications.email_events_hint'
 
-  %p.hint= t 'notifications.email_events_hint'
+  -# .fields-group
+    -# = f.simple_fields_for :notification_emails, hash_to_object(current_user.settings.notification_emails) do |ff|
+    -#  = ff.input :follow, as: :boolean, wrapper: :with_label
+    -#  = ff.input :follow_request, as: :boolean, wrapper: :with_label
+    -#  = ff.input :reblog, as: :boolean, wrapper: :with_label
+    -#  = ff.input :favourite, as: :boolean, wrapper: :with_label
+    -#  = ff.input :mention, as: :boolean, wrapper: :with_label
+    -#  = ff.input :report, as: :boolean, wrapper: :with_label if current_user.can?(:manage_reports)
+    -#  = ff.input :appeal, as: :boolean, wrapper: :with_label if current_user.can?(:manage_appeals)
+    -#  = ff.input :pending_account, as: :boolean, wrapper: :with_label if current_user.can?(:manage_users)
+    -#  = ff.input :trending_tag, as: :boolean, wrapper: :with_label if current_user.can?(:manage_taxonomies)
 
-  .fields-group
-    = f.simple_fields_for :notification_emails, hash_to_object(current_user.settings.notification_emails) do |ff|
-      = ff.input :follow, as: :boolean, wrapper: :with_label
-      = ff.input :follow_request, as: :boolean, wrapper: :with_label
-      = ff.input :reblog, as: :boolean, wrapper: :with_label
-      = ff.input :favourite, as: :boolean, wrapper: :with_label
-      = ff.input :mention, as: :boolean, wrapper: :with_label
-      = ff.input :report, as: :boolean, wrapper: :with_label if current_user.can?(:manage_reports)
-      = ff.input :appeal, as: :boolean, wrapper: :with_label if current_user.can?(:manage_appeals)
-      = ff.input :pending_account, as: :boolean, wrapper: :with_label if current_user.can?(:manage_users)
-      = ff.input :trending_tag, as: :boolean, wrapper: :with_label if current_user.can?(:manage_taxonomies)
-
-  .fields-group
-    = f.input :setting_always_send_emails, as: :boolean, wrapper: :with_label
+  -# .fields-group
+  -#   = f.input :setting_always_send_emails, as: :boolean, wrapper: :with_label
 
   %h4= t 'notifications.other_settings'
 
